@@ -17,7 +17,7 @@
         const triggerButton = document.getElementById('fetch-button');
         const mainContent = document.getElementById('main-content');
         triggerButton.addEventListener('click', ()=>{
-            fetch('https://www.thecocktaildb.com/api.php')
+            fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
                     .then((response => response.json()))
                     .then((data) => {
                         let drinkData = data.drinks[0]
