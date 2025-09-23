@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Paintings in the World</title>
+</head>
+<body>
+     <header>
+        <h1>Art QR Generator</h1>
+        <h3>Start here:</h3>
+        <button id="fetch-button">Generate Art QR</button>
+    </header>
+ <main id="main-content">
+    </main>
+    <script>
+        const triggerButton = document.getElementById('fetch-button');
+        const mainContent = document.getElementById('main-content');
+         triggerButton.addEventListener('click', ()=>{
+
+             fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects')
+                    .then((response) => {
+                        console.log(response)
+                        return response.json()
+                    })
+                    .then((data) => {
+                    let artworkName = data.title
+                        let artworkImage = data.primaryImage
+                        let artworkArtist = data.artistDisplayName
+                        let artworkDate = data.objectDate
+                        let artworkMedium = data.medium
+
+                        let artworkHTML = `
+                        <h2>${artworkName}</h2>
+                        <img src="${artworkImage}" alt="${artworkName}" id="artwork-img"/>
+                        <p>Artist: ${artworkArtist}</p>
+                        <p>Date: ${artworkDate}</p>
+                        <p>Medium: ${artworkMedium}</p>
+                        `
+                        mainContent.innerHTML = artworkHTML
+                    })
+                })
+                </script>
+</body>
+</html>
