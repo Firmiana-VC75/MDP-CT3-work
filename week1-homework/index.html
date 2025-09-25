@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Great Paintings in the World</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
      <header>
         <h1>Art QR Generator</h1>
         <h3>Start here:</h3>
-        <button id="fetch-button">Generate Art QR</button>
+        <button id="fetch-button">Get your artwork</button>
     </header>
  <main id="main-content">
     </main>
@@ -17,8 +18,11 @@
         const triggerButton = document.getElementById('fetch-button');
         const mainContent = document.getElementById('main-content');
          triggerButton.addEventListener('click', ()=>{
+            const artworkIds = [436535, 438817, 459055, 437853, 435844];
+            const randomId = artworkIds[Math.floor(Math.random() * artworkIds.length)];
 
-             fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects')
+
+             fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomId}`)
                     .then((response) => {
                         console.log(response)
                         return response.json()
