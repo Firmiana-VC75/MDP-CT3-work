@@ -8,7 +8,7 @@
 </head>
 <body>
      <header>
-        <h1>Art QR Generator</h1>
+        <h1>Art Generator</h1>
         <h3>Start here:</h3>
         <button id="fetch-button">Get your artwork</button>
     </header>
@@ -17,6 +17,8 @@
     <script>
         const triggerButton = document.getElementById('fetch-button');
         const mainContent = document.getElementById('main-content');
+        const colorThief = new ColorThief(); 
+        
          triggerButton.addEventListener('click', ()=>{
             const artworkIds = [436535, 438817, 459055, 437853, 435844];
             const randomId = artworkIds[Math.floor(Math.random() * artworkIds.length)];
