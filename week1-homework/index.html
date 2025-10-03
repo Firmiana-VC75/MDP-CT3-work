@@ -93,9 +93,12 @@ const appendCountryData = (data) => {
     }
     
     const country = data[0]
+    const countryFlag = country.flags.png
+    const countryName = country.name.common
     
     let countryHTML = `
         <h3>Artist's Country: ${country.name.common}</h3>
+        <img src="${countryFlag}" alt="${countryName}"/>
         <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : 'N/A'}</p>
         <p><strong>Region:</strong> ${country.region}</p>
         <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
