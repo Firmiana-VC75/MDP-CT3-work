@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    
     <title>Documentation Week1</title>
 </head>
 <body>
@@ -14,14 +16,9 @@
         <div class="sections"></div>
             <section>
                 <h2>Idea</h2>
-                <p>The definition of a Goldberg machine reminds me of the contraptions I saw in Tom and Jerry cartoons as a child.
-                    I want to create an art-related website where viewers can learn about paintings.
-                    At the same time, I also want to infuse the site with some fun elements.
-                </p>
-                <img src="images/idea.jpg" alt="Mind Map">
-
-                <p>I want to randomly display famous paintings using the Metropolitan Museum of Art's API.
-                    Afterward, the color analyzer will work to extract the primary colors from the painting.
+                <p>I originally intended to integrate art with history, but couldn't find a suitable API.
+                    Ultimately, I decided to link famous paintings with the nationality of their artists.
+                    My website will randomly display a painting and retrieve information for that country by detecting the artist's nationality.
                 </p>
             </section>
 
@@ -48,22 +45,40 @@
                     In the JSON, I can see that information is being generated, but my webpage isn't receiving it.
                 </p>
                 <img src="images/5.png" alt="JSON">
-                <img src="" alt="">
+
+                <p>I carefully compared the cocktail API used in class with Met's API.
+                    I discovered that Met's API lacks a random feature.
+                    Therefore, I need to specify the work's ID to display it.</p>
+                <img src="images/2.png" alt="Old Code">
+                <img src="images/rondom.png" alt="New Code">
             </section>
       
             <br><br>
             <section>
-              <h2>Make the design more reasonable</h2>
-              <p>Considering that VR glasses need to be worn, I made an indentation to accommodate the nose.
-                Also put the knobs from the top to the side.</p>
-              <img src="" alt="">
+              <h2>Nationality API</h2>
+              <p>I switched to the artist nationality-country association scheme,
+                successfully linking data between the Met Museum API and the REST Countries API
+                by converting nationalities to country names through mapping objects.</p>
+              <img src="images/6.png" alt="Country Name">
           </section>
       
           <br><br>
           <section>
             <h2>Display</h2>
-            <p>I placed this device in a public setting. In my imagination, the glasses can be used at any time.</p>
-            <img src="" alt="">
+            <p>Viewers can click a button to randomly receive a famous painting,
+                while also viewing information about the artist's country of origin.</p>
+            <video src="video/final.mp4"controls></video>
+        </section>
+
+        <br><br>
+          <section>
+            <h2>Reference</h2>
+            <p>I use these links as tutorial.</p>
+            <p>
+                <a href="https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html">fetch-tutorial</a>
+                <a href="https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d">Map Tutorial</a>
+                <a href="https://web.nodejs.cn/en-us/docs/web/javascript/reference/global_objects/map/#google_vignette">Web tutorial</a>
+            </p>
         </section>
       
         </div>

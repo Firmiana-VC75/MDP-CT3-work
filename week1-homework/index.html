@@ -14,75 +14,97 @@
     </header>
  <main id="main-content">
     </main>
-    <script>
-        const triggerButton = document.getElementById('fetch-button');
-        const mainContent = document.getElementById('main-content');
-
-         const fetchArtworkData = () => {
-         const artworkIds = [436535, 438817, 459055, 437853, 435844];
-         const randomId = artworkIds[Math.floor(Math.random() * artworkIds.length)];
     
-         fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomId}`)
-         .then(response => response.json())
-         .then((data) => appendArtworkData(data, false))
+    <script>
+    const triggerButton = document.getElementById('fetch-button');
+    const mainContent = document.getElementById('main-content');
+    
+    const fetchArtworkData = () => {
+    const artworkIds = [436535, 438817, 459055, 437853, 435844];
+    const randomId = artworkIds[Math.floor(Math.random() * artworkIds.length)];
+    
+    fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomId}`)
+        .then(response => response.json())
+        .then((data) => appendArtworkData(data))
+    }
+    
+    const fetchCountryData = (nationality) => {
+    let countryName = extractCountryName(nationality)
+    console.log('Searching for country:', countryName)
+    
+    fetch(`https://restcountries.com/v3.1/name/${countryName}`)
+        .then(response => response.json())
+        .then((data) => appendCountryData(data))
+    }
+
+const extractCountryName = (nationality) => {
+    const nationalityMap = {
+        'Dutch': 'Netherlands',
+        'French': 'France',
+        'Italian': 'Italy',
+        'Spanish': 'Spain',
+        'German': 'Germany',
+        'American': 'United States',
+        'British': 'United Kingdom',
+        'Chinese': 'China',
+        'Japanese': 'Japan'
+    }
+    
+    for (let key in nationalityMap) {
+        if (nationality.includes(key)) {
+            return nationalityMap[key]
         }
+    }
+    return nationality.split(',')[0].trim()
+}
 
-        const fetchHistoryData = (month, day) => {
-            fetch(`https://en.wikipedia.org/api/rest_v1/feed/onthisday/all/${month}/${day}`)
-            .then(response => response.json())
-            .then((data) => appendHistoryData(data))
-        }
+const appendArtworkData = (data) => {
+    console.log(data)
+    
+    let artworkName = data.title || 'Untitled'
+    let artworkImage = data.primaryImage
+    let artworkArtist = data.artistDisplayName || 'Unknown Artist'
+    let artworkNationality = data.artistNationality || 'Unknown'
+    let artworkDate = data.objectDate || 'Unknown Date'
+    let artworkMedium = data.medium || 'Unknown Medium'
+    
+    let artworkHTML = `
+        <h2>${artworkName}</h2>
+        <img src="${artworkImage}" alt="${artworkName}"/>
+        <p><strong>Artist:</strong> ${artworkArtist}</p>
+        <p><strong>Nationality:</strong> ${artworkNationality}</p>
+        <p><strong>Date:</strong> ${artworkDate}</p>
+        <p><strong>Medium:</strong> ${artworkMedium}</p>
+    `
+    mainContent.innerHTML = artworkHTML
+    
+    if (artworkNationality && artworkNationality !== 'Unknown') {
+        fetchCountryData(artworkNationality)
+    }
+}
 
-        const appendArtworkData = (data, logData = true) => {
-            if(logData) console.log(data)
-                    
-                    let artworkName = data.title
-                        let artworkImage = data.primaryImage
-                        let artworkArtist = data.artistDisplayName
-                        let artworkDate = data.objectDate
-                        let artworkMedium = data.medium
+const appendCountryData = (data) => {
+    console.log('Country data:', data)
+    
+    if (!data || data.length === 0) {
+        mainContent.innerHTML += '<p>No country information found.</p>'
+        return
+    }
+    
+    const country = data[0]
+    
+    let countryHTML = `
+        <h3>Artist's Country: ${country.name.common}</h3>
+        <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : 'N/A'}</p>
+        <p><strong>Region:</strong> ${country.region}</p>
+        <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+        <p><strong>Languages:</strong> ${Object.values(country.languages || {}).join(', ')}</p>
+    `
+    
+    mainContent.innerHTML += countryHTML
+}
 
-                        let artworkHTML = `
-                        <h2>${artworkName}</h2>
-                        <img src="${artworkImage}" alt="${artworkName}" id="artwork-img"/>
-                        <p>Artist: ${artworkArtist}</p>
-                        <p>Date: ${artworkDate}</p>
-                        <p>Medium: ${artworkMedium}</p>
-                        `
-                        mainContent.innerHTML = artworkHTML
-                    }
-
-                    const year = extractYear(artworkDate)
-                    const randomMonth = Math.floor(Math.random() * 12) + 1
-                    const randomDay = Math.floor(Math.random() * 29) + 1
-
-                    fetchHistoryData(randomMonth, randomDay)
-                    const extractYear = (dateString) => {
-                        if (!dateString) return null
-                        const match = dateString.match(/\b(1[0-9]{3}|20[0-9]{2})\b/)
-                        return match ? match[0] : null
-                    }
-
-                    const appendHistoryData = (data) => {
-                        console.log(data)
-                        const events = data.events
-                        const displayEvents = events.slice(0, 3)
-                    }
-
-                    let historyHTML = `
-                     <h3>Historical Story</h3>
-                     <p>Events from history on this day:</p>
-                     `
-
-                     displayEvents.forEach(event => {
-                        historyHTML += `
-                        <p><strong>${event.year}</strong> - ${event.text}</p>
-                        `
-                        mainContent.innerHTML += historyHTML
-
-                    })
-                    
-                    triggerButton.addEventListener('click', fetchArtworkData)
-                </script>
+triggerButton.addEventListener('click', fetchArtworkData)
+</script>
 </body>
 </html>
