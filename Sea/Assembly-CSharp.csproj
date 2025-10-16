@@ -79,7 +79,6 @@
     <Compile Include="Assets/SUIMONO - WATER SYSTEM 2/_DEMO/SCRIPTS/sui_demo_LightHandler.cs" />
     <Compile Include="Assets/SUIMONO - WATER SYSTEM 2/SCRIPTS/Suimono_DistanceBlur.cs" />
     <Compile Include="Assets/SUIMONO - WATER SYSTEM 2/SCRIPTS/Suimono_ShorelineObject.cs" />
-    <Compile Include="Assets/Scenes/Water.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/SUIMONO - WATER SYSTEM 2/_DEMO/TERRAIN/Shaders/suimono2_demo_flora_double.shader" />
