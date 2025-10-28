@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flooding Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Flooding Simulation</h1>
+    </header>
+
+    <main>
+        <section id="idea">
+            <h2>Idea</h2>
+            <p>This project explores climate change and sea level rise through Unity simulation.</p>
+            <p>The simulation shows a small island being submerged by rising water. Then, it starts raining frogs from the sky.</p>
+        </section>
+
+        <section id="process">
+            <h2>Process</h2>
+            
+            <h3>1.Environment Setup</h3>
+                <p>I want to build an island in the middle of the ocean.
+                    Therefore, the shape of the island is particularly important.
+                The terrain started out square, and I pressed the excess under the water to make the island look more realistic.</p>
+            <img src="images/3.png">
+            <img src="images/2.png">
+
+            <h3>2.Water Rising System</h3>
+            <p>Getting the water to rise was the first challenge I ran into.
+                My water surface has no dynamics as it rises. The entire surface of the water is like a mirror,
+                complete with up and down translation. This is shown in figure one:</p>
+            <img src="images/1.png">
+             <p>I tried to change the code many times but couldn't achieve the real effect.
+                Until I realized I could switch modes in Suimono and I changed it from 3D Ocean to Waves.</p>
+            <img src="images/4.png">
+
+            <h3>3. Frog System</h3>
+            <p>The rain module I originally wanted to use could not be applied to my version of Unity.
+                To realize the rain idea, I used frogs instead.</p>
+            <img src="images/5.png">
+
+            <h3>4. Camera Animation</h3>
+            <p>For a video subplot, I'm going to make a camera animation.
+                I tried to use Timeline Animation. but I found a tutorial for a camera animation script, 
+                and I referred to the tutorial to write a code that goes around the island.</p>
+            <img src="images/6.png">
+
+
+        <section id="video">
+            <h2>Video</h2>
+            <p>Watch the complete simulation:</p>
+            <video controls style="width: 100%;">
+                <source src="video/simulation.mp4" type="video/mp4">
+            </video>
+
+           
+        </section>
+    </main>
+</body>
+</html>
