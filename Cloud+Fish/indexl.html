@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud and Pond</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 水波纹背景动画 -->
+    <div class="wave-background">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Cloud and Pond</h1>
+        </header>
+
+        <section id="concept">
+            <h2>01. Concept</h2>
+            <p>JR's and my creatures are clouds and ponds,they are in the same environment and receive relevant data.
+                The diagram shows our Work flow.
+            </p>
+            <img src="images/concept.png">
+            <p>
+               My clouds are affected by JR's temperature sensors. The higher the temperature, the smaller the cloud;
+               the lower the temperature, the larger the cloud. When the clouds are big enough, it rains.
+               The size of the rain is controlled by a air pressure sensor.
+            </p>
+            <p>
+                This is a team project. To see JR's work, please click here:
+                <a href="#" class="member-link" target="_blank">https://jiaaaruiii.github.io/ACCD-CT3-JR/project3creature/creature.html</a>
+            </p>
+        </section>
+
+        <section id="process">
+            <h2>02. Process and Problem Slove</h2>
+
+            <div class="process-step">
+                <h3>Step1: TouchDesigner Visualization</h3>
+                <p>
+                    My cloud went through two updates. The first time, I wanted to make a simple cloud with Noise components.
+                    But Noise's visual was more like a mist than a cloud and didn't have the effect I wanted.
+                    I checked all the components and finally found a component called Particle GPU.
+                    This component looks better than Noise, but it doesn't reflect the fluffiness of the clouds.
+                </p>
+                <img src="images/cloud1.png">
+                <img src="images/cloud2.png">
+                <p>
+                    Eventually I found a tutorial and I referenced part of it to make a new cloud. This is the link to the tutorial:
+                    <a href="#" class="member-link" target="_blank">https://www.youtube.com/watch?v=ZgYxo6o-o9s&t=634s</a>
+                </p>
+            </div>
+
+            <div class="process-step">
+                <h3>阶段三：硬件集成与调试</h3>
+                <p>
+                    将Arduino传感器接入系统，调试数据传输的稳定性和延迟。
+                    这个阶段花费了大量时间在解决信号噪音和同步问题上。
+                    最终我们通过OSC协议实现了稳定的实时通信。
+                </p>
+                <!-- <img src="images/integration.jpg" alt="硬件集成"> -->
+            </div>
+
+            <div class="process-step">
+                <h3>阶段四：视觉优化与展示准备</h3>
+                <p>
+                    对系统的视觉反馈进行精细调整，确保在不同光线条件下都能清晰展示。
+                    优化了性能，使整个系统能够流畅运行在展示现场的硬件配置上。
+                </p>
+                <!-- <img src="images/optimization.jpg" alt="优化阶段"> -->
+            </div>
+        </section>
+
+        <!-- 链接设备 -->
+        <section id="equipment">
+            <h2>03. 链接设备</h2>
+            
+            <div class="equipment-list">
+                <div class="equipment-item">
+                    <h3>硬件设备</h3>
+                    <ul>
+                        <li><strong>Arduino Uno</strong> - 传感器数据采集</li>
+                        <li><strong>光敏传感器</strong> - 检测环境光线变化</li>
+                        <li><strong>声音传感器</strong> - 捕捉声音强度</li>
+                        <li><strong>距离传感器</strong> - 检测观众互动</li>
+                        <li><strong>投影仪</strong> - 视觉输出设备</li>
+                    </ul>
+                </div>
+
+                <div class="equipment-item">
+                    <h3>软件环境</h3>
+                    <ul>
+                        <li><strong>TouchDesigner</strong> - 主要开发平台</li>
+                        <li><strong>Arduino IDE</strong> - 传感器编程</li>
+                        <li><strong>OSC协议</strong> - 数据通信</li>
+                    </ul>
+                </div>
+
+                <div class="equipment-item">
+                    <h3>技术架构</h3>
+                    <p>
+                        Arduino → Serial/USB → TouchDesigner → 视觉处理 → 投影输出
+                    </p>
+                    <p>
+                        整个系统采用模块化设计，每个传感器的数据流可以独立调试和优化。
+                        TouchDesigner中使用了多层反馈循环来创造"生态感"的视觉效果。
+                    </p>
+                </div>
+            </div>
+
+            <!-- <img src="images/equipment-diagram.jpg" alt="设备连接图"> -->
+        </section>
+
+        <!-- 最终展示 -->
+        <section id="exhibition">
+            <h2>04. 最终展示</h2>
+            
+            <div class="exhibition-content">
+                <p>
+                    最终作品在展览现场呈现为一个互动装置。
+                    观众的存在和行为会影响屏幕上"生态圈"的状态——
+                    当有人靠近时，系统会"呼吸"得更急促；
+                    当环境安静时，画面会逐渐趋于平静，某些元素甚至会慢慢"遗忘"（淡出）。
+                </p>
+
+                <p>
+                    这个项目不仅是技术实验，更是对"机器记忆"的批判性思考。
+                    在一个充斥着永久存储和数据监控的时代，
+                    我们的作品提出了一个问题：机器是否也可以学会"遗忘"？
+                </p>
+
+                <!-- 可以在这里插入最终展示的照片或视频 -->
+                <!-- <img src="images/final-1.jpg" alt="最终展示1"> -->
+                <!-- <img src="images/final-2.jpg" alt="最终展示2"> -->
+                <!-- <video controls>
+                    <source src="videos/demo.mp4" type="video/mp4">
+                </video> -->
+
+                <div class="exhibition-reflection">
+                    <h3>展示反思</h3>
+                    <p>
+                        通过这个项目，我们深入理解了技术与哲学交织的可能性。
+                        TouchDesigner作为工具，让我们能够快速迭代想法，
+                        而Arduino的物理性又让作品拥有了与真实世界对话的能力。
+                    </p>
+                    <p>
+                        未来，我们希望继续探索更复杂的生态模型，
+                        或许可以引入机器学习，让系统真正"学会"什么值得记住，什么应该忘记。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2025 TouchDesigner Ecosystem Project</p>
+            <p>Art Center College of Design</p>
+        </footer>
+    </div>
+</body>
+</html>
