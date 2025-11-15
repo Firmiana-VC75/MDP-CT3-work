@@ -37,7 +37,7 @@
         </section>
 
         <section id="process">
-            <h2>02. Process and Problem Slove</h2>
+            <h2>02. Process</h2>
 
             <div class="process-step">
                 <h3>Step1: TouchDesigner Visualization</h3>
@@ -51,44 +51,46 @@
                 <img src="images/cloud2.png">
                 <p>
                     Eventually I found a tutorial and I referenced part of it to make a new cloud. This is the link to the tutorial:
-                    <a href="#" class="member-link" target="_blank">https://www.youtube.com/watch?v=ZgYxo6o-o9s&t=634s</a>
+                    <a href="#" class="member-link" target="_blank">https://www.youtube.com/watch?v=ZgYxo6o-o9s&t=634s</a><br>
+                    The 3.0 version cloud is the best one. I learned something new from the tutorial.
                 </p>
+                <img src="images/cloud3.png">
             </div>
 
             <div class="process-step">
-                <h3>阶段三：硬件集成与调试</h3>
+                <h3>Step2: Coding</h3>
                 <p>
-                    将Arduino传感器接入系统，调试数据传输的稳定性和延迟。
-                    这个阶段花费了大量时间在解决信号噪音和同步问题上。
-                    最终我们通过OSC协议实现了稳定的实时通信。
-                </p>
-                <!-- <img src="images/integration.jpg" alt="硬件集成"> -->
+                    To connect JR's data, we have to use each other's feed.
+                    Base on the code we learned in class, here is our test code.
+                 </p>
+                 <img src="images/test code.png">
+
             </div>
 
             <div class="process-step">
-                <h3>阶段四：视觉优化与展示准备</h3>
+                <h3>Step3: Hardware Connection</h3>
                 <p>
-                    对系统的视觉反馈进行精细调整，确保在不同光线条件下都能清晰展示。
-                    优化了性能，使整个系统能够流畅运行在展示现场的硬件配置上。
+                    Connecting the air pressure sensor was a little challenging for me.
+                    This is my first time using this sensor and even though it says Chinese on it I still don't know how to operate it.
+                    Thanks to JR, she help me find a link: <br>
+                     <a href="#" class="member-link" target="_blank">https://www.homemade-circuits.com/hx710b-air-pressure-sensor-datasheet-how-to-connect/</a><br>
+                     I successfully connected this sensor according to the interface cross-reference on Adafruit.
                 </p>
-                <!-- <img src="images/optimization.jpg" alt="优化阶段"> -->
+                <img src="images/sensor.png">
             </div>
         </section>
 
-        <!-- 链接设备 -->
-        <section id="equipment">
-            <h2>03. 链接设备</h2>
+        <section>
+            <h2>03. HUGE PROBLEM</h2>
             
-            <div class="equipment-list">
-                <div class="equipment-item">
-                    <h3>硬件设备</h3>
-                    <ul>
-                        <li><strong>Arduino Uno</strong> - 传感器数据采集</li>
-                        <li><strong>光敏传感器</strong> - 检测环境光线变化</li>
-                        <li><strong>声音传感器</strong> - 捕捉声音强度</li>
-                        <li><strong>距离传感器</strong> - 检测观众互动</li>
-                        <li><strong>投影仪</strong> - 视觉输出设备</li>
-                    </ul>
+                <div class="First test">
+                    <h3>Cloud2-Test</h3>
+                    <p>
+                        When we tested the code in class with a second visual, it worked.
+                    </p>
+                    <video control>
+                        <source src="video/test-1.mp4">
+                    </video>
                 </div>
 
                 <div class="equipment-item">
@@ -154,12 +156,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- 页脚 -->
-        <footer>
-            <p>© 2025 TouchDesigner Ecosystem Project</p>
-            <p>Art Center College of Design</p>
-        </footer>
     </div>
 </body>
 </html>

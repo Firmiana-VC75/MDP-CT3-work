@@ -1,0 +1,361 @@
+/* ===== 基础重置 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.8;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* ===== 水波纹背景动画 ===== */
+.wave-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 40% 60%;
+    animation: wave-animation 20s infinite linear;
+}
+
+.wave:nth-child(2) {
+    bottom: -20px;
+    background: rgba(0, 0, 0, 0.03);
+    animation: wave-animation 15s infinite linear reverse;
+    opacity: 0.8;
+}
+
+.wave:nth-child(3) {
+    bottom: -40px;
+    background: rgba(0, 0, 0, 0.015);
+    animation: wave-animation 25s infinite linear;
+    opacity: 0.6;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-25%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ===== 主容器 ===== */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 头部样式 ===== */
+header {
+    text-align: center;
+    padding: 100px 0 80px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 60px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ===== 章节样式 ===== */
+section {
+    margin-bottom: 100px;
+    padding: 50px 0;
+    position: relative;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.1) 50%, 
+        transparent 100%);
+}
+
+section:last-of-type::after {
+    display: none;
+}
+
+/* ===== 标题样式 ===== */
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: #000;
+    letter-spacing: 3px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #000;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* ===== 文本样式 ===== */
+p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 2;
+    color: #444;
+    text-align: left;
+}
+
+/* ===== 链接样式 ===== */
+a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #666;
+    border-bottom-color: #666;
+}
+
+.member-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.05rem;
+}
+
+/* ===== 项目过程样式 ===== */
+.process-step {
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: rgba(245, 245, 245, 0.5);
+    border-left: 3px solid #000;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    background-color: rgba(240, 240, 240, 0.8);
+    transform: translateX(5px);
+}
+
+/* ===== 设备列表样式 ===== */
+.equipment-list {
+    display: grid;
+    gap: 30px;
+}
+
+.equipment-item {
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.equipment-item:hover {
+    border-color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-item h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.equipment-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.equipment-item li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    color: #555;
+}
+
+.equipment-item li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #000;
+}
+
+.equipment-item li strong {
+    color: #000;
+    font-weight: 500;
+}
+
+/* ===== 展示部分样式 ===== */
+.exhibition-content {
+    padding: 20px 0;
+}
+
+.exhibition-reflection {
+    margin-top: 50px;
+    padding: 40px;
+    background-color: rgba(245, 245, 245, 0.6);
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+.exhibition-reflection h3 {
+    margin-top: 0;
+}
+
+/* ===== 图片和视频样式 ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 40px auto;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    border-color: #000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+video {
+    width: 100%;
+    max-height: 600px;
+    display: block;
+    margin: 40px auto;
+    border: 1px solid #e0e0e0;
+}
+
+/* ===== 页脚样式 ===== */
+footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    margin-top: 80px;
+    border-top: 1px solid #e0e0e0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 60px 0 40px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    section {
+        margin-bottom: 60px;
+        padding: 30px 0;
+    }
+
+    .process-step {
+        padding: 20px;
+    }
+
+    .equipment-item {
+        padding: 20px;
+    }
+
+    .exhibition-reflection {
+        padding: 25px;
+    }
+
+    .wave {
+        height: 150px;
+    }
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+    .wave-background {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
