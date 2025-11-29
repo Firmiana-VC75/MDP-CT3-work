@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Back button */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Screen management */
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Feed screen specific - no justify-content center */
+#feed-screen.active {
+    justify-content: flex-start;
+}
+
+/* Other screens centered */
+#selection-screen.active,
+#reveal-screen.active,
+#missed-screen.active {
+    justify-content: center;
+}
+
+/* ================================ */
+/* STAGE 1: SELECTION SCREEN */
+/* ================================ */
+
+.selection-container {
+    text-align: center;
+    max-width: 600px;
+}
+
+.selection-container h1 {
+    font-size: 42px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.topic-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.topic-btn {
+    background: #f8f8f8;
+    border: 2px solid #e0e0e0;
+    padding: 40px 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.topic-btn:hover {
+    border-color: #333;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.topic-btn .emoji {
+    font-size: 60px;
+}
+
+.topic-btn .label {
+    font-size: 18px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* ================================ */
+/* STAGE 2: FEED SCREEN */
+/* ================================ */
+
+#feed-screen {
+    padding-top: 80px;
+}
+
+.feed-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.feed-header h2 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.scroll-hint {
+    font-size: 14px;
+    color: #999;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.feed-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 100px;
+}
+
+/* Feed item card */
+.feed-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+.feed-item:hover {
+    border-color: #999;
+    transform: translateX(5px);
+}
+
+.feed-item.clicked {
+    background-color: #f9f9f9;
+}
+
+.feed-item-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.feed-item-icon {
+    font-size: 32px;
+    display: none; /* Hide icon to avoid undefined */
+}
+
+.feed-item-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.feed-item-meta {
+    font-size: 13px;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Fading effect for non-relevant items */
+.feed-item.fading {
+    opacity: 0.4;
+    filter: grayscale(70%);
+}
+
+.feed-item.buried {
+    opacity: 0.15;
+    filter: grayscale(100%);
+    pointer-events: none;
+}
+
+/* Stage indicators */
+.stage-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 20px;
+    z-index: 100;
+}
+
+/* ================================ */
+/* STAGE 3: REVEAL SCREEN */
+/* ================================ */
+
+.reveal-container {
+    max-width: 700px;
+    text-align: center;
+}
+
+.reveal-title {
+    font-size: 48px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    border-bottom: 3px solid #333;
+    padding-bottom: 20px;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+}
+
+.chart-section {
+    margin-bottom: 50px;
+}
+
+.chart-section h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.attention-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chart-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chart-label {
+    min-width: 100px;
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+}
+
+.chart-bar-bg {
+    flex: 1;
+    height: 30px;
+    background: #f0f0f0;
+    position: relative;
+}
+
+.chart-bar-fill {
+    height: 100%;
+    background: #333;
+    transition: width 1s ease;
+}
+
+.chart-percentage {
+    min-width: 50px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.show-missed-btn {
+    padding: 15px 40px;
+    background: #333;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.show-missed-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+/* ================================ */
+/* STAGE 4: MISSED CONTENT SCREEN */
+/* ================================ */
+
+.missed-container {
+    max-width: 700px;
+    text-align: center;
+}
+
+.missed-title {
+    font-size: 48px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    border-bottom: 3px solid #333;
+    padding-bottom: 20px;
+}
+
+.buried-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.buried-item {
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 4px solid #999;
+}
+
+.buried-item-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.buried-item-icon {
+    font-size: 24px;
+    display: none; /* Hide icon to avoid undefined */
+}
+
+.buried-item-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.buried-item-reason {
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+.final-message {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.return-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.return-btn:hover {
+    background: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .selection-container h1 {
+        font-size: 32px;
+    }
+    
+    .topic-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stats-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .reveal-title,
+    .missed-title {
+        font-size: 32px;
+    }
+}
