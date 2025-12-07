@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZANY - Aesthetic Categories</title>
+    <link rel="stylesheet" href="zanyStyle.css">
+</head>
+<body>
+    <!-- Back button -->
+    <a href="index.html" class="back-btn">←Back</a>
+
+    <!-- Initial screen: Command to start -->
+    <div id="start-screen" class="screen active">
+        <div class="start-container">
+            <h1 class="command-title">PERFORMANCE</h1>
+            <button id="start-btn" class="start-button">BEGIN</button>
+        </div>
+    </div>
+
+    <!-- Video screen -->
+    <div id="video-screen" class="screen">
+        <video id="performance-video" class="performance-video" loop>
+            <source src="video/Zany.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script src="zanyScript.js"></script>
+</body>
+</html>
