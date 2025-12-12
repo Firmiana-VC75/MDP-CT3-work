@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shakespeare Text Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>🎭 Mixed Roast Generator</h1>
+    </header>
+
+    <!-- Project Overview -->
+    <section class="section">
+      <h2>Project Overview</h2>
+      <p>My friends often tell me I'm too blunt when I speak. So I thought I'd translate all my usual insults into Shakespearean style,
+        that way they won't think I'm cursing at them. It's pretty hilarious.</p><br>
+    </section>
+
+    <!-- Technical Approach -->
+    <section class="section">
+      <h2>Technical Approach</h2>
+      
+      <h3>Database</h3>
+      <ul>
+        <li><strong>My Collection of Modern Rants (13 Entries):</strong>These materials come from me and my friends.</li>
+        <li><strong>Shakespeare's Poems:</strong>Retrieved from the PoetryDB API, totaling 162 poems.</li>
+      </ul>
+
+    <!-- Challenges -->
+    <section class="section">
+      <h2>Challenges</h2>
+
+      <div class="challenge">
+        <h4>1: It's purely random generation—there's no mixing involved at all.</h4>
+        <p><strong>Problem：</strong>The first version was purely randomized text generation. The content looked like it was learned from two data sources,
+            but in reality there was no “blending” at all. My generator just spits out a bunch of garbage.</p><br>
+            <img src="images/1.png">
+      </div>
+
+      <div class="challenge">
+        <h4>2: Used a template, but didn't use the API at all</h4>
+        <p><strong>Problem：</strong>Random generation can be garbled. To fix this, I made a keyword recognition system with pre-written templates.
+            For example, if you type in “lazy”, it will output “Thou art slothful...” That kind of thing.</p><br>
+        <div class="solution">
+          <strong>Why this doesn't meet the requirements of the assignment:</strong>
+          <p>The assignment was to "spice up" text generation with API data. My template approach bypasses algorithmic generation altogether.
+            it's all about keyword matching and then pre-determined sentences. The teacher wanted to see the mess, the unpredictability,
+            the strange beauty of the n-gram output. I ended up with something super controllable that completely defeated the intent of the assignment.</p><br>
+            <img src="images/2.png">
+        </div>
+      </div>
+
+      <div class="challenge">
+        <h4>3: Only the first three letters can be detected</h4>
+        <p><strong>Problem: </strong>Going back to pure n-gram generation, the system only uses the first 3 characters entered by the user as a seed.
+            You type “You're so pathetic”, it just looks at “You” and throws the rest away.</p><br>
+            <img src="images/3.png">
+
+        <div class="solution">
+          <strong>Solution:</strong>
+          <p>The teacher said that you can change it to keep the complete input and then continue from the end of the input.
+            Now the algorithm takes your complete sentence and continues from where you left off,
+            a true “continuation” rather than starting from scratch.</p><br>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflections -->
+    <section class="section">
+      <h2>Some Thoughts</h2>
+
+      <p>I started out wanting to control the output and make it “work”.
+        But the point of the assignment was to explore what happens when you don't control it.
+        The weird output was the point. The biggest takeaway from this project was to embrace the mess which at first I thought was a “failure”, but in fact is the essence of algorithmic generation.</p><br>
+    </section>
+
+    <!-- Links -->
+    <section class="section">
+      <div class="link-box">
+        <h3>Final Link</h3>
+        <p><strong>Play Around!</strong> <a href="https://symphonious-figolla-d00f18.netlify.app" target="_blank">https://symphonious-figolla-d00f18.netlify.app</a></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
