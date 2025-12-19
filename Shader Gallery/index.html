@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shader Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="nav-left">Shader Gallery</div>
+        <div class="nav-right">
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 图片画廊 -->
+        <div class="gallery">
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/1.png" alt="Shader 1">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/2.png" alt="Shader 2">
+
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/3.png" alt="Shader 3">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/4.png" alt="Shader 4">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/5.png" alt="Shader 5">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/6.png" alt="Shader 6">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/7.png" alt="Shader 7">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/8.png" alt="Shader 8">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/9.png" alt="Shader 9">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/10.png" alt="Shader 10">
+            </div>
+            
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/11.png" alt="Shader 11">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/12.png" alt="Shader 12">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/13.png" alt="Shader 13">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/14.png" alt="Shader 14">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/15.png" alt="Shader 15">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/16.png" alt="Shader 16">
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/17.png" alt="Shader 17">
+            </div>
+        </div>
+
+        <!-- 视频区域 -->
+        <div class="video-section">
+            <video controls>
+                <source src="video/Three more.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- 图片放大模态框 -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

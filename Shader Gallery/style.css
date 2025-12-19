@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f5f5;
+    background-image: radial-gradient(circle, #ddd 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* 顶部导航 */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+
+.nav-right {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-right a {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.nav-right a:hover {
+    opacity: 0.6;
+}
+
+/* 主容器 */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* 画廊 */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.gallery-item {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.gallery-item:hover {
+    opacity: 0.7;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    background: #fff;
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    font-weight: 300;
+}
+
+/* 视频区域 */
+.video-section {
+    width: 100%;
+    margin-top: 80px;
+}
+
+.video-section video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+/* 模态框 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #333;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.close:hover {
+    opacity: 0.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .container {
+        padding: 40px 30px;
+    }
+    
+    .gallery {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        padding: 15px 20px;
+    }
+    
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .close {
+        top: 20px;
+        right: 30px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .nav-right {
+        gap: 15px;
+    }
+    
+    .nav-right a {
+        font-size: 12px;
+    }
+}
