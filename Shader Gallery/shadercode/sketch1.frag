@@ -1,6 +1,3 @@
-// Pixel heart (grid-based, with true top notch) — Shadertoy safe
-// Uses int row/col rules (no float equality), so it's robust.
-
 float sdBox(vec2 p, vec2 b){
     vec2 d = abs(p) - b;
     return max(d.x, d.y);
